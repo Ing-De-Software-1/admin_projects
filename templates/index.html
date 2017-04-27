@@ -1,12 +1,41 @@
-{% extends 'base.html' %}
-
+{% extends 'layout.html' %}
 {% block content %}
-{% from "macro/navbar.html" import navbar %}
-    {{ navbar() }}
-
-<body >
-   <h1>pagina principal</h1>
-
-</body>
-
+    {% from "macro/navbar.html" import navbar %}
+    {% from "macro/footer.html" import footer %}
+        {{ navbar() }}
+<main>
+    <div class="slider grey lighten-1">
+        <ul class="slides">
+            <li>
+                <img src="{{ url_for('static',filename='media/people1.jpg') }}">
+                <div class="caption center-align">
+                    <h3>This is our big Tagline!</h3>
+                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+            </li>
+            <li>
+                <img src="{{ url_for('static',filename='media/people2.jpg') }}">
+                <div class="caption left-align">
+                    <h3>Left Aligned Caption</h3>
+                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+            </li>
+            <li>
+                <img src="{{ url_for('static',filename='media/people3.jpg') }}">
+                <div class="caption right-align">
+                    <h3>Right Aligned Caption</h3>
+                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+            </li>
+            <li>
+                <img src="{{ url_for('static',filename='media/people4.jpg') }}">
+                <div class="caption center-align">
+                    <h3>This is our big Tagline!</h3>
+                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+            </li>
+        </ul>
+    </div>
+</main>
+        {{ footer() }}
 {% endblock %}

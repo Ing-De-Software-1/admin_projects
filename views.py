@@ -1,6 +1,6 @@
 from flask import Flask, render_template,request, session, redirect, url_for,flash
 from config import DevelopmentConfig
-from models import *
+#from models import *
 import forms
 
 app = Flask(__name__)

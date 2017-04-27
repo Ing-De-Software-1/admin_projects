@@ -1,0 +1,7 @@
+.slider .slides {
+    height: 440px !important;
+}
+.slider .indicators {
+    z-index: 2;
+    margin-bottom: 10px;
+}
