@@ -2,6 +2,7 @@
 {% block content %}
     {% from "macro/navbar.html" import navbar %}
     {% from "macro/footer.html" import footer %}
+    {% from "macro/card.html" import card %}
         {{ navbar() }}
 <main>
     <div class="slider grey lighten-1">
@@ -36,6 +37,7 @@
             </li>
         </ul>
     </div>
+    {{card()}}
 </main>
         {{ footer() }}
 {% endblock %}
