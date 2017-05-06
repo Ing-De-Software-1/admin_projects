@@ -2,4 +2,4 @@ from views import *
 
 
 if __name__ == '__main__':
-	app.run(host='localhost', port=5086)
+	app.run(host='localhost', port=5102)
