@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{ url_for('static',filename='css/navbar.css') }}">
         <link rel="stylesheet" href="{{ url_for('static',filename='css/slider.css') }}">
         <link rel="stylesheet" href="{{ url_for('static',filename='css/card.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/form.css') }}">
             <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
@@ -24,7 +25,7 @@
       {% block footer %}{% endblock %}
 
           <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="{{ url_for('static',filename='bower_components/jquery/dist/jquery.js') }}"></script>
+      <script type="text/javascript" src="{{ url_for('static',filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
       <script type="text/javascript" src="{{ url_for('static',filename='bower_components/materialize/dist/js/materialize.min.js') }}"></script>
           <!--Import Initialization Jquery-->
       <script>

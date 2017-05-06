@@ -20,7 +20,7 @@ def server_error(e):
 def index():
 	return render_template('index.html')
 
-@app.route(r'/login', methods=['GET','POST'])
+@app.route(r'/registrar', methods=['GET','POST'])
 def login():
     form_log = forms.LoginForm(request.form)
     form_reg = forms.RegisterForm(request.form)
@@ -29,7 +29,7 @@ def login():
         user= form_log.username.data
         password= form_log.password.data
         return redirect(url_for('home'))
-    return render_template('login.html', login=form_log , registro=form_reg, e=e)
+    return render_template('registrar.html', login=form_log , registro=form_reg, e=e)
 
 
 @app.route(r'/home', methods=['GET'])
