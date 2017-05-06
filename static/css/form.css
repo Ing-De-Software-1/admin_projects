@@ -1,3 +1,11 @@
-  .marginForm{
-  	margin-top: 70px;
-  }
+  	/*Classes*/
+.marginForm{
+	padding-top: 12em !important;
+}
+#marginRegister{
+	padding-top: 8em !important;
+  	/*Ids*/
+}
+#color_form_bg{
+	background-color: #8B8C80;	
+} 
