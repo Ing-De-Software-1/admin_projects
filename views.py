@@ -31,6 +31,19 @@ def login():
         return redirect(url_for('home'))
     return render_template('login.html', login=form_log , registro=form_reg, e=e)
 
+@app.route(r'/prm', methods=['GET','POST'])
+def prm():
+    form_log = forms.LoginForm(request.form)
+    e = ""
+    if request.method== 'POST' and form_log.validate():
+        user= form_log.username.data
+        password= form_log.password.data
+        print user
+        print password
+
+        return redirect(url_for('home'))
+    return render_template('login.html', login=form_log , e=e)
+
 
 @app.route(r'/home', methods=['GET'])
 def home():

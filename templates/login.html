@@ -3,6 +3,7 @@
 {% block content %}
 {% from "macro/navbar.html" import navbar %}
 {{ navbar('/','Inicio') }}
+
 {% from "macro/renderField.html" import render_field %}
 
 <br>
@@ -11,4 +12,21 @@
 {{ render_field(login.password) }}
 <br>
 
+    <form action="/prm" method="post" >
+    {% for x in [0,1] %}
+        <h1>nuevo form</h1>
+        <br>
+        <div id="{{ x }}">
+        {{ render_field(login.username) }}
+        </div>
+        <br>
+        {{ render_field(login.password) }}
+        <br>
+        <h1>fin form</h1>
+    {% endfor %}
+
+        <button class="btn waves-effect waves-light" type="submit" name="action">Register
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
 {% endblock %}

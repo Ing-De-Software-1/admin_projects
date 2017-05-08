@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% from "macro/navbar.html" import navbar %}
+    {{ navbar('/','Inicio') }}
+
+    {% from "macro/form_macro.html" import form %}
+    {{ form() }}
+
+
+{% endblock %}
