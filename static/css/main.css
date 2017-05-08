@@ -1,0 +1,33 @@
+/*tags*/
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+/*classes*/
+.imgsize{
+	max-width: 100%;
+}
+.row{
+	margin-bottom: 0px;
+}
+/*ids*/
+#register{
+	background-color: #F2F2F2;
+	color: #424242;
+	border-color: #424242;
+	border: 1px;
+
+}
+#register:hover{
+	background-color: #424242;
+	color: #F2F2F2;
+	border-color: #F2F2F2;
+}
+#paddingButton{
+	padding-bottom: 1em;
+}

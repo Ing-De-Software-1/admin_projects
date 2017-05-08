@@ -1,0 +1,30 @@
+.card{
+	margin: 3rem .5rem 3rem .5rem !important;
+}
+
+/* Card */
+.card1{
+    background-color: #344B59;
+}
+.card2{
+    background-color: #566783;
+}
+.card3{
+    background-color: #8B8C80;
+}
+.card4{
+    background-color: #F2F2F2;
+}
+.card5{
+    background-color: #516373;
+}
+.card6{
+    background-color: #F2EFDF;
+}
+/* ID */
+
+.cardBg{
+	margin-top: 35px;
+	max-width: 80% !important;
+	border-radius: 5px;
+}

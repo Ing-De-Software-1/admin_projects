@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+	{% block content %}
+	    {% from "macro/navbar.html" import navbar %}
+	    {% from "macro/footer.html" import footer %}
+	    {% from "macro/form.html" import form %}
+	        {{ navbar() }}
+			{{ form() }}
+		    {{ footer() }}
+	{% endblock %}
