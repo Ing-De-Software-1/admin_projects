@@ -1,4 +1,6 @@
-{% macro form (label = 'Log In', label1 = 'Iniciar Sesión / Log In', label2 = 'Registrate',label3 = 'Registra tu Proyecto & Equipo', label4 = 'Contraseña', label5='Email', label6='Confirma tu email', label7 = 'Registrarse', label8='Usuario', label9 = 'Nombre del Equipo', label10= 'Nombre del Proyeto') %}
+{% macro form (usF1,passF1,label = 'Log In', label1 = 'Iniciar Sesión / Log In', label2 = 'Registrate',label3 = 'Registra tu Proyecto & Equipo', label4 = 'Contraseña', label5='Email', label6='Confirma tu email', label7 = 'Registrarse', label8='Usuario', label9 = 'Nombre del Equipo', label10= 'Nombre del Proyeto') %}
+
+        {% from "macro/renderField.html" import render_field %}
 
 <main id="color_form_bg">
 	<div class="container">
@@ -14,16 +16,22 @@
 						<div class="row">
 							<div class="input-field col s12 m12 l12">
 								<i class="material-icons prefix">person</i>
+                                <!--
 								<input id="icon_prefix2" type="text" class="validate">
-								<label for="icon_prefix2">{{label8}}</label>
+								<label for="icon_prefix2"> { {label8}}</label>
+								-->
+                                {{ render_field(usF1) }}
 							</div>				
 						</div>
 						<div class="row">
 							<div class="input-field col s12 m12 l12">
 								<i class="material-icons prefix">vpn_key</i>
+                                <!--
 								<input id="icon_prefix2" type="password" class="validate">
-								<label for="icon_prefix2">{{label4}}</label>
-							</div>
+								<label for="icon_prefix2"> { {label4}}</label>
+							    -->
+                                {{ render_field(passF1) }}
+                            </div>
 						</div>
 					</div>
 					<div class="section">
@@ -79,7 +87,7 @@
 				</div>	
 	        </div>
 				<!--End Register Person-->
-
+            <form action=""></form>
 				<!--Register Project & Team-->        
 	        <div class="col s12 m12 l4 white-text pull-l8 marginForm center">
 	        	<div class="section">
