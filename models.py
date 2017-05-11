@@ -64,3 +64,27 @@ def SaveProyecto(nombre,descripcion):
         return True
     except:
         return False
+
+
+
+def ScanUser(name):
+    try:
+        xxx= User.query(User.username == name).fetch()
+    except:
+        xxx='error'
+    return xxx
+
+
+
+def LoginModel(user):
+    try:
+        a = ScanUser(str(user))
+        for x in a:
+            h= x.username
+            i= x.password
+        b= str(h)
+        c= str(i)
+        return [b,c,True]
+    except:
+        return False
+
