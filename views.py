@@ -26,12 +26,13 @@ def index():
 def registrar():
     form_log = forms.LoginForm(request.form)
     form_reg = forms.RegisterForm(request.form)
+    form_equ = forms.EquipoForm(request.form)    
     e = ""
     if request.method== 'POST' and form_log.validate():
         user= form_log.username.data
         password= form_log.password.data
         return redirect(url_for('home'))
-    return render_template('registrar.html', login=form_log , registro=form_reg, e=e)
+    return render_template('registrar.html', login=form_log , registro=form_reg, equipo=form_equ, e=e)
 
 
 

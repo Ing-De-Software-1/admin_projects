@@ -50,7 +50,7 @@ class RegisterForm(Form):
     semestre = SelectField('Semestre', choices=[('1', '1'), ('2', '2'),('3', '3'),
                                                 ('4', '4'), ('5', '5'), ('6', '6'),
                                                 ('7', '7'), ('8', '8'), ('9','9')])
-    cuenta = IntegerField('Account',
+    cuenta = IntegerField('Numero De Cuenta',
                           [
                               validators.Required(message='Obligatorio'),
                               validators.length(min=9, max=10, message='Número de cuenta incorrecto,'
