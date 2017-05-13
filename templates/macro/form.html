@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 {% macro form (usLI, passLI,
 usReg, emailReg, degreReg, semeReg, cuentaReg, pasReg, ConfReg,
 label4 = 'Numero de cuenta',
 label = 'Log In', label1 = 'Iniciar Sesión / Log In', label2 = 'Registrate',label3 = 'Registra tu Proyecto & Equipo', label7 = 'Registrarse', label8='Usuario', label9 = 'Nombre del Equipo', label10= 'Nombre del Proyeto') %}
+=======
+{% macro form (usF1,passF1,semF2,label = 'Log In', label1 = 'Iniciar Sesión / Log In', label2 = 'Registrate',label3 = 'Registra tu Proyecto & Equipo', label4 = 'Contraseña', label5='Email', label6='Confirma tu email', label7 = 'Registrarse', label8='Usuario', label9 = 'Nombre del Equipo', label10= 'Nombre del Proyeto') %}
+>>>>>>> dc700b6eae06fed025184d60d59394bba7491427
 
         {% from "macro/renderField.html" import render_field %}
 
@@ -10,6 +14,7 @@ label = 'Log In', label1 = 'Iniciar Sesión / Log In', label2 = 'Registrate',lab
 		<div class="row">
 				<!--Log In-->
 	        <div class="col s12 m12 l4 push-l8 center marginForm white-text">
+<<<<<<< HEAD
 		        <form action="/login" method="post">
 			        <div class="section">
 			        	<div class="section">
@@ -27,6 +32,23 @@ label = 'Log In', label1 = 'Iniciar Sesión / Log In', label2 = 'Registrate',lab
 									</div>
 									-->
 	                                {{ render_field(usLI) }}
+=======
+		        <div class="section">
+		        	<div class="section">
+		        		<h5>{{label1}}</h5>
+		        	</div>
+		        	<div class="section">
+						<div class="divider"></div>
+						<div class="row">
+							<div class="input-field col s12 m12 l12">
+
+                                <!--
+                                <i class="material-icons prefix">person</i>
+								<input id="icon_prefix2" type="text" class="validate">
+								<label for="icon_prefix2"> { {label8}}</label>
+								-->
+                                {{ render_field(usF1) }}
+>>>>>>> dc700b6eae06fed025184d60d59394bba7491427
 							</div>				
 							<div class="row">
 								    <!--
@@ -39,12 +61,25 @@ label = 'Log In', label1 = 'Iniciar Sesión / Log In', label2 = 'Registrate',lab
 	                                {{ render_field(passLI, "vpn_key") }}
 	                        </div>
 						</div>
+<<<<<<< HEAD
 						<div class="section">
 						    <div class="input-field col s12 m12 l12">
 								<button class="btn waves-effect waves-light" type="submit" name="action" id="register">{{label}}
 									<i class="material-icons right">send</i>
 								</button>
 							</div>
+=======
+						<div class="row">
+							<div class="input-field col s12 m12 l12">
+
+                                <!--
+								<i class="material-icons prefix">vpn_key</i>
+								<input id="icon_prefix2" type="password" class="validate">
+								<label for="icon_prefix2"> { {label4}}</label>
+							    -->
+                                {{ render_field(passF1,"vpn_key") }}
+                            </div>
+>>>>>>> dc700b6eae06fed025184d60d59394bba7491427
 						</div>
 		        	</div>
 		        </form>	
@@ -65,6 +100,7 @@ label = 'Log In', label1 = 'Iniciar Sesión / Log In', label2 = 'Registrate',lab
 							<div class="row">
 								{{ render_field(emailReg, "email") }}
 							</div>
+<<<<<<< HEAD
 							<div class="row">
 								{{ render_field(degreReg, "grade") }}
 							</div>					
@@ -86,6 +122,23 @@ label = 'Log In', label1 = 'Iniciar Sesión / Log In', label2 = 'Registrate',lab
 								<i class="material-icons right">send</i>
 							</button>
 						</div>
+=======
+						</div>
+                        <div class="row">
+							<div class="input-field col s12 m12 l12">
+								<i class="material-icons prefix">vpn_key</i>
+								<input id="icon_prefix2" type="password" class="validate">
+								<label for="icon_prefix2">{{label4}}</label>
+							</div>
+						</div>
+
+
+                    </div>
+					<div class="section">
+						<button class="btn waves-effect waves-light" type="submit" name="action" id="register">{{label2}}
+							<i class="material-icons right">send</i>
+						</button>
+>>>>>>> dc700b6eae06fed025184d60d59394bba7491427
 					</div>
 				</form>		
 	        </div>

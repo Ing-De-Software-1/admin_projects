@@ -6,7 +6,11 @@
         {% from "macro/renderField.html" import render_field %}
 
 	        {{ navbar() }}
+<<<<<<< HEAD
 			{{ form(login.username,login.password,
 			registro.username, registro.email, registro.carrera, registro.semestre, registro.cuenta, registro.password, registro.password) }}
+=======
+			{{ form(login.username,login.password,registro.semestre) }}
+>>>>>>> dc700b6eae06fed025184d60d59394bba7491427
 		    {{ footer() }}
 	{% endblock %}
