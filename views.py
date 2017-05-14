@@ -26,22 +26,18 @@ def index():
 def registrar():
     form_log = forms.LoginForm(request.form)
     form_reg = forms.RegisterForm(request.form)
-<<<<<<< HEAD
     form_equ = forms.EquipoForm(request.form)    
-=======
     form_eq = forms.EquipoForm(request.form)
     form_pro = forms.ProyectoForm(request.form)
->>>>>>> dc700b6eae06fed025184d60d59394bba7491427
     e = ""
     if request.method== 'POST' and form_log.validate():
         user= form_log.username.data
         password= form_log.password.data
         return redirect(url_for('home'))
-<<<<<<< HEAD
+
     return render_template('registrar.html', login=form_log , registro=form_reg, equipo=form_equ, e=e)
-=======
     return render_template('registrar.html', login=form_log , registro=form_reg, equipo=form_eq, proyecto=form_pro, e=e)
->>>>>>> dc700b6eae06fed025184d60d59394bba7491427
+
 
 
 
@@ -71,17 +67,15 @@ def login():
     if request.method== 'POST' and form_log.validate():
         user= form_log.username.data
         password= form_log.password.data
-
         a = LoginModel(str(user))
         if a[2]:
             if a[0] == str(user) and a[1] == str(password):
                 session['username'] = user
                 return redirect(url_for('home'))
             else:
-                e = "usuario o contraseña incorrectos"
+                e = "usuario o contrasena incorrectos"
         else:
-            e = "usuario o contraseña incorrectos"
-
+            e = "usuario o contrasena incorrectos"
     return render_template('login.html', form=form_log , fo=form_reg, e=e)
 
 
