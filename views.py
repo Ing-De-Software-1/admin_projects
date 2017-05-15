@@ -26,8 +26,7 @@ def index():
 def registrar():
     form_log = forms.LoginForm(request.form)
     form_reg = forms.RegisterForm(request.form)
-    form_equ = forms.EquipoForm(request.form)    
-    form_eq = forms.EquipoForm(request.form)
+    form_equ = forms.EquipoForm(request.form)
     form_pro = forms.ProyectoForm(request.form)
     e = ""
     if request.method== 'POST' and form_log.validate():
@@ -35,8 +34,7 @@ def registrar():
         password= form_log.password.data
         return redirect(url_for('home'))
 
-    return render_template('registrar.html', login=form_log , registro=form_reg, equipo=form_equ, e=e)
-    return render_template('registrar.html', login=form_log , registro=form_reg, equipo=form_eq, proyecto=form_pro, e=e)
+    return render_template('registrar.html', login=form_log , registro=form_reg, equipo=form_equ, proyecto=form_pro, e=e)
 
 
 
@@ -52,7 +50,7 @@ def prm():
         print password
 
         return redirect(url_for('home'))
-    return render_template('login.html', login=form_log , e=e)
+    return render_template('login.html', login=form_log, e=e)
 
 
 @app.route(r'/login', methods=['GET','POST'])
