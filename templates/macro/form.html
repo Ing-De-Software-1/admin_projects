@@ -1,118 +1,148 @@
-{% macro form (label = 'Log In', label1 = 'Iniciar Sesión / Log In', label2 = 'Registrate',label3 = 'Registra tu Proyecto & Equipo', label4 = 'Contraseña', label5='Email', label6='Confirma tu email', label7 = 'Registrarse', label8='Usuario', label9 = 'Nombre del Equipo', label10= 'Nombre del Proyeto') %}
+{% macro form (usLI, passLI,
+			   usReg, emailReg, degreReg, cuentaReg, passReg, confReg, semeReg,
+			   label4 = 'Numero de cuenta',
+			   label = 'Log In', label1 = 'Iniciar Sesión / Log In', label2 = 'Registrate',label3 = 'Registra tu Proyecto & Equipo', label7 = 'Registrarse', label8='Usuario', label9 = 'Nombre del Equipo', label10= 'Nombre del Proyeto') %}
+	{% from "macro/renderField.html" import render_field %}
 
 <main id="color_form_bg">
 	<div class="container">
 		<div class="row">
 				<!--Log In-->
 	        <div class="col s12 m12 l4 push-l8 center marginForm white-text">
-		        <div class="section">
-		        	<div class="section">
-		        		<h5>{{label1}}</h5>
-		        	</div>
-		        	<div class="section">
-						<div class="divider"></div>
-						<div class="row">
-							<div class="input-field col s12 m12 l12">
-								<i class="material-icons prefix">person</i>
-								<input id="icon_prefix2" type="text" class="validate">
-								<label for="icon_prefix2">{{label8}}</label>
-							</div>				
-						</div>
-						<div class="row">
-							<div class="input-field col s12 m12 l12">
-								<i class="material-icons prefix">vpn_key</i>
-								<input id="icon_prefix2" type="password" class="validate">
-								<label for="icon_prefix2">{{label4}}</label>
-							</div>
+		        <form action="/login" method="post">
+			        <div class="section">
+			        	<div class="section">
+			        		<h5>{{label1}}</h5>
+			        	</div>
+			        	<div class="section">
+							<div class="divider"></div>
+							<div class="row">
+								<!--
+                                <div class="input-field col s12 m12 l12">
+	                                <i class="material-icons prefix">person</i>
+									<input id="icon_prefix2" type="text" class="validate">
+									<label for="icon_prefix2"> { {label8}}</label>
+								</div>
+								-->
+								{{ render_field(usLI) }}
+	                        </div>
+							<div class="row">
+							    <!--
+							    <div class="input-field col s12 m12 l12">
+							    	<i class="material-icons prefix">vpn_key</i>
+									<input id="icon_prefix2" type="password" class="validate">
+									<label for="icon_prefix2"> { {label4}}</label>
+								</div>
+							    -->
+								{{ render_field(passLI, "vpn_key") }}
+		                    </div>
 						</div>
 					</div>
 					<div class="section">
-						<button class="btn waves-effect waves-light" type="submit" name="action" id="register">{{label}}
-							<i class="material-icons right">send</i>
-						</button>
+						<div class="input-field col s12 m12 l12">
+							<button class="btn waves-effect waves-light" type="submit" name="action" id="register">{{label}}
+									<i class="material-icons right">send</i>
+							</button>
+						</div>
 					</div>
-				</div>
-	        </div>
+		        </form>	
+	        </div>	
 				<!--End Log In-->
+
 				<!--Register Person-->
 	        <div class="col s12 m12 l4 center white-text" id="marginRegister">
-		        <div class="section">
-		        	<div class="section">
-		        		<h5>{{label2}}</h5>
-		        	</div>
-		        	<div class="section">
-						<div class="divider"></div>
-						<div class="row">
-							<div class="input-field col s12 m12 l12">
-								<i class="material-icons prefix">person</i>
-								<input id="icon_prefix2" type="text" class="validate">
-								<label for="icon_prefix2">{{label8}}</label>
-							</div>				
-						</div>
-						<div class="row">
-							<div class="input-field col s12 m12 l12">
-								<i class="material-icons prefix">email</i>
-								<input id="icon_email" type="email" class="validate">
-								<label for="icon_email" data-error="Incorrecto"  data-right="Correcto">{{label5}}</label>
+			    <form action="/resgistro/persona" method="post">
+			        <div class="section">
+			        	<div class="section">
+			        		<h5>{{label2}}</h5>
+			        	</div>
+			        	<div class="section">
+							<div class="divider"></div>
+							<div class="row">
+								{{ render_field(usReg) }}
+							</div>
+							<div class="row">
+								{{ render_field(emailReg, "email") }}
+							</div>
+							<div class="row">
+								{{ render_field(degreReg, "grade") }}
+							</div>
+							<div class="row">
+								{{ render_field(cuentaReg, "code")}}
+							</div>
+							<div class="row">
+								{{ render_field(passReg, "vpn_key") }}
+							</div>
+							<div class="row">
+								{{ render_field(confReg, "vpn_key") }}
+							</div>
+							<div class="row">
+								<div class="input-field col s12 m12 l12">
+									<select>
+										<option disabled selected>Escoge tu Opción</option>
+										<!--
+										<option value="1">1er Semestre</option>
+										<option value="2">2do Semestre</option>
+										<option value="3">3er Semestre</option>
+										<option value="4">4to Semestre</option>
+										<option value="5">5to Semestre</option>
+										<option value="6">6to Semestre</option>
+										<option value="7">7mo Semestre</option>
+										<option value="8">8vo Semestre</option>
+										<option value="9">9no Semestre</option>
+										-->
+										{% for x in semeReg %}
+											<option value="{{ x.semeReg }}">{{ x.semeReg }}</option>
+										{% endfor %}
+									</select>
+									<label  for="icon_prefix">Selecciona tu semestre</label>
+								</div>								
 							</div>
 						</div>
-						<div class="row">
-							<div class="input-field col s12 m12 l12">
-								<i class="material-icons prefix">email</i>
-								<input id="icon_email" type="email" class="validate">
-								<label for="icon_email" data-error="Incorrecto"  data-right="Correcto">{{label5}}</label>
-							</div>
-						</div>					
-						<div class="row">
-							<div class="input-field col s12 m12 l12">
-								<i class="material-icons prefix">vpn_key</i>
-								<input id="icon_prefix2" type="password" class="validate">
-								<label for="icon_prefix2">{{label4}}</label>
-							</div>
-						</div>					
+						<div class="section">
+							<button class="btn waves-effect waves-light" type="submit" name="action" id="register">{{label2}}
+								<i class="material-icons right">send</i>
+							</button>
+						</div>
 					</div>
-					<div class="section">
-						<button class="btn waves-effect waves-light" type="submit" name="action" id="register">{{label2}}
-							<i class="material-icons right">send</i>
-						</button>
-					</div>
-				</div>	
-	        </div>
+				</form>                       
+            </div>
 				<!--End Register Person-->
 
 				<!--Register Project & Team-->        
 	        <div class="col s12 m12 l4 white-text pull-l8 marginForm center">
-	        	<div class="section">
+		        <form action="/resgistro/equipo" method="post">
 		        	<div class="section">
-		        		<h5>{{label3}}</h5>
-		        	</div>
-		        	<div class="section">
-						<div class="divider"></div>
-						<div class="row">
-							<div class="input-field col s12 m12 l12">
-								<i class="material-icons prefix">work</i>
-								<input id="icon_prefix2" type="text" class="validate">
-								<label for="icon_prefix2">{{label10}}</label>
-							</div>				
-						</div>
-						<div class="row">
-							<div class="input-field col s12 m12 l12">
-								<i class="material-icons prefix">people</i>
-								<input id="icon_prefix2" type="text" class="validate">
-								<label for="icon_prefix2">{{label9}}</label>
+			        	<div class="section">
+			        		<h5>{{label3}}</h5>
+			        	</div>
+			        	<div class="section">
+							<div class="divider"></div>
+							<div class="row">
+								<div class="input-field col s12 m12 l12">
+									<i class="material-icons prefix">work</i>
+									<input id="icon_prefix2" type="text" class="validate">
+									<label for="icon_prefix2">{{label10}}</label>
+								</div>				
+							</div>
+							<div class="row">
+								<div class="input-field col s12 m12 l12">
+									<i class="material-icons prefix">people</i>
+									<input id="icon_prefix2" type="text" class="validate">
+									<label for="icon_prefix2">{{label9}}</label>
+								</div>
 							</div>
 						</div>
+						<div class="section">
+							<button class="btn waves-effect waves-light" type="submit" name="action" id="register">{{label7}}
+								<i class="material-icons right">send</i>
+							</button>
+						</div>
 					</div>
-					<div class="section">
-						<button class="btn waves-effect waves-light" type="submit" name="action" id="register">{{label7}}
-							<i class="material-icons right">send</i>
-						</button>
-					</div>
-				</div>					
+				</form>	
 	        </div>
 	        	<!--End Register Project & Team-->
 		</div>
 	</div>
 </main>
-
-{%endmacro%}
+{% endmacro %}

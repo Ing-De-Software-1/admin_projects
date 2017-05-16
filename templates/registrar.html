@@ -3,7 +3,10 @@
 	    {% from "macro/navbar.html" import navbar %}
 	    {% from "macro/footer.html" import footer %}
 	    {% from "macro/form.html" import form %}
+        {% from "macro/renderField.html" import render_field %}
+
 	        {{ navbar() }}
-			{{ form() }}
+			{{ form(login.username,login.password,
+			registro.usname, registro.email, registro.carrera, registro.cuenta, registro.pasword, registro.pasword, registro.semestre) }}
 		    {{ footer() }}
 	{% endblock %}
