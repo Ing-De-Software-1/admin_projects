@@ -2,3 +2,4 @@ venv
 bower.json
 bower_components/
 .idea/
+admin_projects.iml
