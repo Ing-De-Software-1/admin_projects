@@ -1,6 +1,6 @@
 from flask import Flask, render_template,request, session, redirect, url_for,flash
 from config import DevelopmentConfig
-#from models import *
+from models import *
 import forms
 
 app = Flask(__name__)
@@ -77,19 +77,18 @@ def login():
     return render_template('login.html', form=form_log , fo=form_reg, e=e)
 
 
-"""
+
 @app.route(r'/registro/persona', methods=['GET','POST'])
-def registro-persona():
+def registroPersona():
     form_log = forms.LoginForm(request.form)
     form_reg = forms.RegisterForm(request.form)
     err=''
-    h=''
-    i=''
-    d=''
     if request.method== 'POST' and form_reg.validate():
         user= (form_reg.username.data).encode('utf-8')
         email= form_reg.email.data
         password= (form_reg.password.data).encode('utf-8')
+        semestre= (form_reg.semestre.data).encode('utf-8')
+        cuenta= (form_reg.semestre.data).encode('utf-8')
 
         a = ScanUser(unicode(str(user), "utf-8"))
         for x in a:
@@ -104,11 +103,15 @@ def registro-persona():
         if b == user or c == email or d == email:
             err = 'usuario ya registrado'
         else:
-            if SaveUser(unicode(str(user), "utf-8"),unicode(str(password), "utf-8"),str(email)):
+            if SaveUser(unicode(str(user), "utf-8"),
+                        unicode(str(password), "utf-8"),
+                        str(email),
+                        unicode(str(semestre), "utf-8"),
+                        unicode(str(cuenta), "utf-8")):
                 session['username'] = unicode(user,"utf-8")
                 return redirect(url_for('home'))
     return render_template('login.html', form=form_log , fo=form_reg, e=err)
-"""
+
 
 """
 @app.route(r'/registro/equipo', methods=['GET','POST'])
