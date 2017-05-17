@@ -26,14 +26,16 @@ def index():
 def registrar():
     form_log = forms.LoginForm(request.form)
     form_reg = forms.RegisterForm(request.form)
-    form_eq = forms.EquipoForm(request.form)
+    form_equ = forms.EquipoForm(request.form)
     form_pro = forms.ProyectoForm(request.form)
     e = ""
     if request.method== 'POST' and form_log.validate():
         user= form_log.username.data
         password= form_log.password.data
         return redirect(url_for('home'))
-    return render_template('registrar.html', login=form_log , registro=form_reg, equipo=form_eq, proyecto=form_pro, e=e)
+
+    return render_template('registrar.html', login=form_log , registro=form_reg, equipo=form_equ, proyecto=form_pro, e=e)
+
 
 
 
@@ -48,7 +50,7 @@ def prm():
         print password
 
         return redirect(url_for('home'))
-    return render_template('login.html', login=form_log , e=e)
+    return render_template('login.html', login=form_log, e=e)
 
 
 @app.route(r'/login', methods=['GET','POST'])
@@ -63,17 +65,15 @@ def login():
     if request.method== 'POST' and form_log.validate():
         user= form_log.username.data
         password= form_log.password.data
-
         a = LoginModel(str(user))
         if a[2]:
             if a[0] == str(user) and a[1] == str(password):
                 session['username'] = user
                 return redirect(url_for('home'))
             else:
-                e = "usuario o contraseña incorrectos"
+                e = "usuario o contrasena incorrectos"
         else:
-            e = "usuario o contraseña incorrectos"
-
+            e = "usuario o contrasena incorrectos"
     return render_template('login.html', form=form_log , fo=form_reg, e=e)
 
 

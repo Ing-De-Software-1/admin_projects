@@ -6,6 +6,7 @@
         {% from "macro/renderField.html" import render_field %}
 
 	        {{ navbar() }}
-			{{ form(login.username,login.password,registro.semestre) }}
+			{{ form(login.username,login.password,
+			registro.usname, registro.email, registro.carrera, registro.cuenta, registro.pasword, registro.pasword, registro.semestre) }}
 		    {{ footer() }}
 	{% endblock %}

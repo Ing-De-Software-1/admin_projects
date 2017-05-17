@@ -1,5 +1,5 @@
 {% macro navbar(location = '/', location1='#somos', location2='#proyecto', location3='#equipo', location4='#registro',
-location5 = '/registrar.html', label = 'SABE', label1 = 'Somos', label2 = 'Proyecto', label3 = 'Equipo', label4 = 'Registrar',
+location5 = '/registrar', label = 'SABE', label1 = 'Somos', label2 = 'Proyecto', label3 = 'Equipo', label4 = 'Registrar',
 label5 = 'Log In', label6 = 'Log Out') %}
 <!--location = '#', label1 = 'La palabra de la dirección'-->
 
@@ -17,7 +17,7 @@ label5 = 'Log In', label6 = 'Log Out') %}
                 <li><a href="">{{label6}}</a></li>
                     {% elif label == regresar %}
                     {% else %}
-                <li><a href="{{login}}">{{label5}}</a></li>
+                <li><a href="{{location5}}">{{label5}}</a></li>
                     {% endif %}
             </ul>
             <ul class="side-nav" id="mobile-demo">

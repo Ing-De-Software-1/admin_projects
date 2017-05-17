@@ -16,14 +16,14 @@ main {
 	margin-bottom: 0px;
 }
 /*ids*/
-#register{
+.register{
 	background-color: #F2F2F2;
 	color: #424242;
 	border-color: #424242;
 	border: 1px;
 
 }
-#register:hover{
+.register:hover{
 	background-color: #424242;
 	color: #F2F2F2;
 	border-color: #F2F2F2;

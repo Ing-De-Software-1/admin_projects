@@ -1,10 +1,7 @@
 {% macro render_field(field,icon="person") %}
-
-    <div class="input-field col s6 offset-s3">
-
+    <div class="input-field col s12 m12 l12">
         <i class="material-icons prefix">{{ icon }}</i>
-
-        <label id="formlabels">{{ field.label }}</label>
+        {{ field.label }}
         {{ field(**kwargs)|safe }}
         {% if field.errors %}
             <ul>
@@ -13,6 +10,7 @@
                 {% endfor %}
             </ul>
         {% endif %}
+        <label id="formlabels" for="icon_prefix"></label>
     </div>
 
 {% endmacro %}
