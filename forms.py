@@ -35,6 +35,13 @@ class RegisterForm(Form):
                                                                          'minimo 4 caracteres, maximo 25')
                             ])
 
+    pasword2= PasswordField('Password Confirm',
+                           [
+                               validators.Required(message='Obligatorio'),
+                               validators.length(min=4, max=25, message='Password invalido,'
+                                                                        'minimo 4 caracteres, maximo 25')
+                           ])
+
     email= EmailField('Email',
                       [
                           validators.Required(message='Obligatorio'),

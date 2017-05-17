@@ -6,7 +6,132 @@
         {% from "macro/renderField.html" import render_field %}
 
 	        {{ navbar() }}
-			{{ form(login.username,login.password,
-			registro.usname, registro.email, registro.carrera, registro.cuenta, registro.pasword, registro.pasword, registro.semestre) }}
-		    {{ footer() }}
+
+
+        <main id="color_form_bg">
+            <div class="container">
+                <div class="row">
+                    <!--Log In-->
+                    <div class="col s12 m12 l4 push-l8 center marginForm white-text">
+                        <form action="/login" method="post">
+                            <div class="section">
+                                <div class="section">
+                                    <h5>Iniciar Sesión / Log In</h5>
+                                </div>
+                                <div class="section">
+                                    <div class="divider"></div>
+                                    <div class="row">
+                                        <!--
+                                        <div class="input-field col s12 m12 l12">
+                                            <i class="material-icons prefix">person</i>
+                                            <input id="icon_prefix2" type="text" class="validate">
+                                            <label for="icon_prefix2"> { {label8}}</label>
+                                        </div>
+                                        -->
+                                        {{ render_field(login.username) }}
+                                    </div>
+                                    <div class="row">
+                                        <!--
+                                        <div class="input-field col s12 m12 l12">
+                                            <i class="material-icons prefix">vpn_key</i>
+                                            <input id="icon_prefix2" type="password" class="validate">
+                                            <label for="icon_prefix2"> { {label4}}</label>
+                                        </div>
+                                        -->
+                                        {{ render_field(login.password, "vpn_key") }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="section">
+                                <div class="input-field col s12 m12 l12">
+                                    <button class="btn waves-effect waves-light register" type="submit" name="action">Log In
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--End Log In-->
+
+                    <!--Register Person-->
+                    <div class="col s12 m12 l4 center white-text" id="marginRegister">
+                        <form action="/registro/persona" method="post">
+                            <div class="section">
+                                <div class="section">
+                                    <h5>Registrate</h5>
+                                </div>
+                                <div class="section">
+                                    <div class="divider"></div>
+                                    <div class="row">
+                                        {{ render_field(registro.usname) }}
+                                    </div>
+                                    <div class="row">
+                                        {{ render_field( registro.email, "email") }}
+                                    </div>
+                                    <div class="row">
+                                        {{ render_field(registro.carrera, "grade") }}
+                                    </div>
+                                    <div class="row">
+                                        {{ render_field( registro.cuenta, "code")}}
+                                    </div>
+                                    <div class="row">
+                                        {{ render_field(registro.pasword, "vpn_key") }}
+                                    </div>
+                                    <div class="row">
+                                        {{ render_field(registro.pasword2, "vpn_key") }}
+                                    </div>
+                                    <div class="row">
+                                        {{render_field(registro.semestre,"")}}
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <button class="btn waves-effect waves-light register" type="submit" name="action">Registrate
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--End Register Person-->
+
+                    <!--Register Project & Team-->
+                    <div class="col s12 m12 l4 white-text pull-l8 marginForm center">
+                        <form action="/registro/equipo" method="post">
+                            <div class="section">
+                                <div class="section">
+                                    <h5>Registra tu Proyecto & Equipo</h5>
+                                </div>
+                                <div class="section">
+                                    <div class="divider"></div>
+                                    <div class="row">
+                                        {{ render_field(equipo.name, "vpn_key") }}
+                                    </div>
+                                    <div class="row">
+                                        {{ render_field(equipo.name, "vpn_key") }}
+                                    </div>
+                                </div>
+                                <div class="section">
+                                    <a class="waves-effect waves-light btn register" href="#modal1"><i class="material-icons right">send</i>Registrarse</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--End Register Project & Team-->
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Modal Header</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons right">send</i>Enviar</a>
+            </div>
+        </div>
+
+
+        {{ footer() }}
 	{% endblock %}

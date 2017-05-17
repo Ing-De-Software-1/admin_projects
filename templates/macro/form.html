@@ -1,7 +1,9 @@
 {% macro form (usLI, passLI,
 			   usReg, emailReg, degreReg, cuentaReg, passReg, confReg, semReg,
 			   label4 = 'Numero de cuenta',
-			   label = 'Log In', label1 = 'Iniciar Sesión / Log In', label2 = 'Registrate',label3 = 'Registra tu Proyecto & Equipo', label7 = 'Registrarse', label8='Usuario', label9 = 'Nombre del Equipo', label10= 'Nombre del Proyeto') %}
+			   label = 'Log In', label1 = 'Iniciar Sesión / Log In', label2 = 'Registrate',
+			   label3 = 'Registra tu Proyecto & Equipo', label7 = 'Registrarse',
+			   label8='Usuario', label9 = 'Nombre del Equipo', label10= 'Nombre del Proyeto') %}
 	{% from "macro/renderField.html" import render_field %}
 
 <main id="color_form_bg">
@@ -51,7 +53,7 @@
 
 				<!--Register Person-->
 	        <div class="col s12 m12 l4 center white-text" id="marginRegister">
-			    <form action="/resgistro/persona" method="post">
+			    <form action="/registro/persona" method="post">
 			        <div class="section">
 			        	<div class="section">
 			        		<h5>{{label2}}</h5>
@@ -77,7 +79,7 @@
 								{{ render_field(confReg, "vpn_key") }}
 							</div>
 							<div class="row">
-								{{render_field(semReg)}}								
+								{{render_field(semReg,"")}}
 							</div>
 						</div>
 						<div class="section">
@@ -92,7 +94,7 @@
 
 				<!--Register Project & Team-->        
 	        <div class="col s12 m12 l4 white-text pull-l8 marginForm center">
-		        <form action="/resgistro/equipo" method="post">
+		        <form action="/registro/equipo" method="post">
 		        	<div class="section">
 			        	<div class="section">
 			        		<h5>{{label3}}</h5>
