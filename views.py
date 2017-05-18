@@ -40,17 +40,11 @@ def registrar():
 
 
 @app.route(r'/prm', methods=['GET','POST'])
-def prm():
-    form_log = forms.LoginForm(request.form)
-    e = ""
-    if request.method== 'POST' and form_log.validate():
-        user= form_log.username.data
-        password= form_log.password.data
-        print user
-        print password
-
+@app.route(r'/prm/<us>/<pas>/<mail>/<int:sem>/<cta>', methods=['GET','POST'])
+def prm(us="erick",pas="erick",mail="eric@gmail.com",sem=4,cta="313190944"):
+    if SaveUser(us,pas,mail,sem,cta):
         return redirect(url_for('home'))
-    return render_template('login.html', login=form_log, e=e)
+
 
 
 @app.route(r'/login', methods=['GET','POST'])
@@ -84,32 +78,21 @@ def registroPersona():
     form_reg = forms.RegisterForm(request.form)
     err=''
     if request.method== 'POST' and form_reg.validate():
+        print "ya mero"
         user= (form_reg.username.data).encode('utf-8')
         email= form_reg.email.data
         password= (form_reg.password.data).encode('utf-8')
         semestre= (form_reg.semestre.data).encode('utf-8')
-        cuenta= (form_reg.semestre.data).encode('utf-8')
-
-        a = ScanUser(unicode(str(user), "utf-8"))
-        for x in a:
-            h= x.username
-            i= x.email
-        b= str(h)
-        c= str(i)
-        a = ScanEmail(str(email))
-        for x in a:
-            i= x.email
-        d= str(i)
-        if b == user or c == email or d == email:
-            err = 'usuario ya registrado'
-        else:
-            if SaveUser(unicode(str(user), "utf-8"),
-                        unicode(str(password), "utf-8"),
-                        str(email),
-                        unicode(str(semestre), "utf-8"),
-                        unicode(str(cuenta), "utf-8")):
-                session['username'] = unicode(user,"utf-8")
-                return redirect(url_for('home'))
+        cuenta= (form_reg.cuenta.data).encode('utf-8')
+        print "ya mero2"
+        if SaveUser(unicode(str(user), "utf-8"),
+                    unicode(str(password), "utf-8"),
+                    str(email),
+                    int(semestre),
+                    unicode(str(cuenta), "utf-8")
+                    ):#usernam,passwor,email,semestre,cuenta
+            session['username'] = unicode(user,"utf-8")
+            return redirect(url_for('home'))
     return render_template('login.html', form=form_log , fo=form_reg, e=err)
 
 
@@ -150,7 +133,8 @@ def register():
 
 @app.route(r'/home', methods=['GET'])
 def home():
-    return render_template('home.html')
+    return "Hola"
+    #return render_template('home.html')
 
 
 @app.route(r'/logout')

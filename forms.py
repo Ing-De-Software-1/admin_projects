@@ -21,21 +21,21 @@ class LoginForm(Form):
                             ])
 
 class RegisterForm(Form):
-    usname= StringField('Username',
+    username= StringField('Username',
                           [
                               validators.Required(message='Obligatorio'),
                               validators.length(min=4, max=25, message='Nombre invalido,'
                                                                        'minimo 4 caracteres, maximo 25')
                           ])
 
-    pasword= PasswordField('Password',
+    password= PasswordField('Password',
                             [
                                 validators.Required(message='Obligatorio'),
                                 validators.length(min=4, max=25, message='Password invalido,'
                                                                          'minimo 4 caracteres, maximo 25')
                             ])
 
-    pasword2= PasswordField('Password Confirm',
+    password2= PasswordField('Password Confirm',
                            [
                                validators.Required(message='Obligatorio'),
                                validators.length(min=4, max=25, message='Password invalido,'
@@ -57,7 +57,7 @@ class RegisterForm(Form):
     semestre = SelectField('Semestre', choices=[('1', '1'), ('2', '2'),('3', '3'),
                                                 ('4', '4'), ('5', '5'), ('6', '6'),
                                                 ('7', '7'), ('8', '8'), ('9','9')])
-    cuenta = IntegerField('Numero De Cuenta',
+    cuenta = StringField('Numero De Cuenta',
                           [
                               validators.Required(message='Obligatorio'),
                               validators.length(min=9, max=10, message='Número de cuenta incorrecto,'

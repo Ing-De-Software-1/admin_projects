@@ -5,7 +5,7 @@ class User(ndb.Model):
     password = ndb.StringProperty(indexed=True, required=True)
     email = ndb.StringProperty(indexed=True, required=True)
     semestre = ndb.IntegerProperty(indexed= True, required=True)
-    cuenta = ndb.IntegerProperty(indexed= True, required=True)
+    cuenta = ndb.StringProperty(indexed= True, required=True)
 
 
 
