@@ -2,6 +2,7 @@
 {% block content %}
     {% from "macro/navbar.html" import navbar %}
     {% from "macro/footer.html" import footer %}
+    {% from "macro/renderField.html" import render_field %}    
     	{{ navbar() }}
     		<main class="indigo darken-1 white-text">
     			<div class="container">
@@ -14,7 +15,13 @@
 						<ul class="collapsible popout" data-collapsible="accordion">
 							<li>
 								<div class="collapsible-header border-collapsible purple darken-1"><i class="material-icons">filter_drama</i>Miembros</div>
-								<div class="collapsible-body border-collapsible purple lighten-1"><span>Lorem ipsum dolor sit amet.</span></div>
+								<div class="collapsible-body border-collapsible purple lighten-1">
+									<div class="center">
+										<a class="waves-effect waves-light btn-large register" href="#modal1">
+											<i class="material-icons right">send</i>Agregar miembros
+										</a>
+									</div>	
+								</div>
 							</li>
 							<li>
 								<div class="collapsible-header border-collapsible pink darken-1"><i class="material-icons">place</i>Proyecto</div>
@@ -48,6 +55,125 @@
 						</ul>
     				</div>
     			</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal purple lighten-4">
+	<div class="modal-content">
+		<ul class="collection with-header border-collap z-depth-5">
+			<li class="collection-header border-collapsible pink darken-3 center">
+				<h3>Miembros del equipo</h3>
+			</li>
+				<!--Miembro 1-->
+			<li class="collection-item border-collapsible pink lighten-1">
+				<form action="/registro/equipo">
+					<div class="section">
+						<div class="section">
+							<h4>Miembro I</h4>
+						</div>
+						<div class="section">
+							<div class="row">
+	                            {{ render_field(equipo.usrname) }}
+	                        </div>
+	                        <div class="row">
+	                            {{ render_field( registro.email, "email") }}
+	                        </div>
+							<a href="#!" class="secondary-content white-text">
+								<i class="material-icons right">send</i>Enviar
+							</a>
+						</div>
+					</div>
+				</form>
+			</li>
+				<!--Miembro 2-->
+			<li class="collection-item border-collapsible pink">
+				<form action="/registro/equipo">
+					<div class="section">
+						<div class="section">
+							<h4>Miembro 2</h4>
+						</div>
+						<div class="section">
+							<div class="row">
+	                            {{ render_field(equipo.usrname) }}
+	                        </div>
+	                        <div class="row">
+	                            {{ render_field( registro.email, "email") }}
+	                        </div>
+							<a href="#!" class="secondary-content white-text">
+								<i class="material-icons right">send</i>Enviar
+							</a>
+						</div>
+					</div>
+				</form>
+			</li>
+				<!--Miembro 3-->
+			<li class="collection-item border-collapsible pink lighten-1">
+				<form action="/registro/equipo">
+					<div class="section">
+						<div class="section">
+							<h4>Miembro 3</h4>
+						</div>
+						<div class="section">
+							<div class="row">
+	                            {{ render_field(equipo.usrname) }}
+	                        </div>
+	                        <div class="row">
+	                            {{ render_field(registro.email, "email") }}
+	                        </div>
+							<a href="#!" class="secondary-content white-text">
+								<i class="material-icons right">send</i>Enviar
+							</a>
+						</div>
+					</div>
+				</form>
+			</li>
+				<!--Miembro 4-->
+			<li class="collection-item border-collapsible pink">
+				<form action="/registro/equipo">
+					<div class="section">
+						<div class="section">
+							<h4>Miembro 4</h4>
+						</div>
+						<div class="section">
+							<div class="row">
+	                            {{ render_field(equipo.usrname) }}
+	                        </div>
+	                        <div class="row">
+	                            {{ render_field(registro.email, "email") }}
+	                        </div>
+							<a href="#!" class="secondary-content white-text">
+								<i class="material-icons right">send</i>Enviar
+							</a>
+						</div>
+					</div>
+				</form>
+			</li>
+				<!--Miembro 5-->
+			<li class="collection-item border-collapsible pink lighten-1">
+				<form action="/registro/equipo">
+					<div class="section">
+						<div class="section">
+							<h4>Miembro 5</h4>
+						</div>
+						<div class="section">
+							<div class="row">
+	                            {{ render_field(equipo.usrname) }}
+	                        </div>
+	                        <div class="row">
+	                            {{ render_field(registro.email, "email") }}
+	                        </div>
+							<a href="#!" class="secondary-content white-text">
+								<i class="material-icons right">send</i>Enviar
+							</a>
+						</div>
+					</div>
+				</form>
+			</li>
+		</ul>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons left">close</i>Cerrar</a>
+	</div>
+</div>    			
     		</main>
     	{{ footer() }}
 {% endblock %}

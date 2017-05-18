@@ -28,8 +28,11 @@ main {
 	color: #F2F2F2;
 	border-color: #F2F2F2;
 }
+.border-collap{
+	border: 0px solid !important;
+}
 .border-collapsible{
-	border-bottom: 0px;
+	border-bottom: 0px !important;
 }
 #paddingButton{
 	padding-bottom: 1em;
