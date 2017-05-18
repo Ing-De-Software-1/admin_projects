@@ -150,7 +150,10 @@ def register():
 
 @app.route(r'/home', methods=['GET'])
 def home():
-    return render_template('home.html')
+    form_reg = forms.RegisterForm(request.form)
+    form_equ = forms.EquipoForm(request.form)
+    e=''
+    return render_template('home.html' , registro=form_reg, equipo=form_equ, e=e)
 
 
 @app.route(r'/logout')
