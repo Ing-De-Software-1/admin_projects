@@ -6,13 +6,18 @@ class User(ndb.Model):
     email = ndb.StringProperty(indexed=True, required=True)
     semestre = ndb.IntegerProperty(indexed= True, required=True)
     cuenta = ndb.StringProperty(indexed= True, required=True)
-
+    equipo = ndb.StringProperty(indexed= True, required=True)
 
 
 #nombre, #integrantes, logo, proyecto, horario, alumnos
 class Equipo(ndb.Model):
     nombre = ndb.StringProperty(indexed= True, required=True)
     integrantes = ndb.IntegerProperty(indexed= True, required=True)
+    #miembro1 = ndb.ReferenceProperty(User)
+    #miembro2 = ndb.ReferenceProperty(User)
+    #miembro3 = ndb.ReferenceProperty(User)
+    #miembro4 = ndb.ReferenceProperty(User)
+    #miembro5 = ndb.ReferenceProperty(User)
 
 
 
@@ -23,15 +28,15 @@ class Proyecto(ndb.Model):
 
 
 
-def SaveUser(usernam,passwor,email,semestre,cuenta):
+def SaveUser(usernam,passwor,email,semestre,cuenta,equipo="Sin equipo"):
     try:
         a=User(
             cuenta=cuenta,
             semestre=semestre,
             email=email,
             password=passwor,
-            username=usernam
-
+            username=usernam,
+            equipo=equipo
         )
         a.put()
         return True
@@ -40,22 +45,22 @@ def SaveUser(usernam,passwor,email,semestre,cuenta):
 
 
 
-def SaveEquipo(nombre,integrantes):
+def SaveEquipo(nombre="chachacha", integrantes=1):
     try:
-        a=User(
+        a=Equipo(
             nombre=nombre,
             integrantes=integrantes
 
         )
         a.put()
-        return True
+        return [True, a]
     except:
         return False
 
 
 def SaveProyecto(nombre,descripcion):
     try:
-        a=User(
+        a=Proyecto(
             nombre=nombre,
             descripcion=descripcion
 

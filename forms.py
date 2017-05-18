@@ -69,20 +69,15 @@ class EquipoForm(Form):
                       [
                           validators.Required(message='Obligatorio'),
                           validators.length(min=4, max=25, message='Nombre invalido,'
-                                                                   'minimo 4 caracteres, maximo 25')
+                                                                   'minimo 3 caracteres, maximo 25')
                       ])
-    usrname= StringField('Username',
-                          [
-                              validators.Required(message='Obligatorio'),
-                              validators.length(min=4, max=25, message='Nombre invalido,'
-                                                                       'minimo 4 caracteres, maximo 25')
-                          ])
+"""
     logo = FileField('Logo')
     account = SelectField('MembersNumbers', choices=[('1', '1'), ('2', '2'),('3', '3'),
                                                     ('4', '4'), ('5', '5'), ('6', '6'),
                                                     ('7', '7'), ('8', '8'), ('9','9')])
     #nombre, #integrantes, logo, proyecto, horario, alumnos
-
+"""
 
 class ProyectoForm(Form):
     name= StringField('Nombre del Proyecto',

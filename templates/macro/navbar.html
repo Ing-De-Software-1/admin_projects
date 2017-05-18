@@ -13,6 +13,8 @@ location1='#somos', location2='#proyecto', location3='#equipo', location4='#regi
                     {% if 'username' in session %}
                 <li><a href="{{location7}}">{{label7}}</a></li>                    
                 <li><a href="">{{label6}}</a></li>
+
+                        <li><a>Hola, {{ session['username'] }}</a></li>
                     {% elif label == regresar %}
                     {% else %}
                 <li><a href="{{location1}}">{{label1}}</a></li>

@@ -43,6 +43,9 @@ def registrar():
 @app.route(r'/prm/<us>/<pas>/<mail>/<int:sem>/<cta>', methods=['GET','POST'])
 def prm(us="erick",pas="erick",mail="eric@gmail.com",sem=4,cta="313190944"):
     if SaveUser(us,pas,mail,sem,cta):
+        a=SaveEquipo("equipo dinamita buena onda",2)
+        if a[0]:
+            return "si paso"
         return redirect(url_for('home'))
 
 
@@ -50,6 +53,7 @@ def prm(us="erick",pas="erick",mail="eric@gmail.com",sem=4,cta="313190944"):
 @app.route(r'/login', methods=['GET','POST'])
 def login():
     form_log = forms.LoginForm(request.form)
+    form_equ = forms.EquipoForm(request.form)
     form_reg = forms.RegisterForm(request.form)
     e = ""
     h=''
@@ -68,7 +72,7 @@ def login():
                 e = "usuario o contrasena incorrectos"
         else:
             e = "usuario o contrasena incorrectos"
-    return render_template('login.html', form=form_log , fo=form_reg, e=e)
+    return render_template('login.html', login=form_log ,equipo=form_equ, registro=form_reg, e=e)
 
 
 
@@ -96,44 +100,52 @@ def registroPersona():
     return render_template('login.html', form=form_log , fo=form_reg, e=err)
 
 
-"""
-@app.route(r'/registro/equipo', methods=['GET','POST'])
-def register():
-    form_log = forms.LoginForm(request.form)
+
+@app.route(r'/registro/eq', methods=['GET','POST'])
+def registroEquipo():
+    form_equ = forms.EquipoForm(request.form)
+    e=''
+    if request.method== 'POST' and form_equ.validate():
+
+        name =(form_equ.name.data).encode('utf-8')
+        nombre=str(unicode(str(name), "utf-8"))
+        print nombre
+        print type(nombre)
+        a=SaveEquipo(nombre,2)
+        #b=SaveEquipo("equipo dinamita  ",2)
+        session['equipo'] = nombre
+        return redirect(url_for('home'))
+    return "Error"
+
+
+@app.route(r'/home', methods=['GET','POST'])
+def home():
+    form_reg = forms.RegisterForm(request.form)
+    e=''
+    return render_template('home.html' , registro=form_reg,  e=e)
+
+
+
+@app.route(r'/registro/miembro', methods=['GET','POST'])
+def registromiembro():
     form_reg = forms.RegisterForm(request.form)
     err=''
-    h=''
-    i=''
-    d=''
-    if request.method== 'POST' and form_reg.validate():
+    if request.method== 'POST' :
         user= (form_reg.username.data).encode('utf-8')
         email= form_reg.email.data
         password= (form_reg.password.data).encode('utf-8')
-
-        a = ScanUser(unicode(str(user), "utf-8"))
-        for x in a:
-            h= x.username
-            i= x.email
-        b= str(h)
-        c= str(i)
-        a = ScanEmail(str(email))
-        for x in a:
-            i= x.email
-        d= str(i)
-        if b == user or c == email or d == email:
-            err = 'usuario ya registrado'
-        else:
-            if SaveUser(unicode(str(user), "utf-8"),unicode(str(password), "utf-8"),str(email)):
-                session['username'] = unicode(user,"utf-8")
-                return redirect(url_for('home'))
-    return render_template('login.html', form=form_log , fo=form_reg, e=err)
-"""
-
-
-
-@app.route(r'/home', methods=['GET'])
-def home():
-    return render_template('home.html')
+        semestre= (form_reg.semestre.data).encode('utf-8')
+        cuenta= (form_reg.cuenta.data).encode('utf-8')
+        #a=session['equipo']
+        if SaveUser(unicode(str(user), "utf-8"),
+                    unicode(str(password), "utf-8"),
+                    str(email),
+                    int(semestre),
+                    unicode(str(cuenta), "utf-8"),
+                    session['equipo']
+                    ):
+            return redirect(url_for('home'))
+    return "Error"
 
 
 @app.route(r'/logout')
