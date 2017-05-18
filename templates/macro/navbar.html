@@ -1,6 +1,7 @@
-{% macro navbar(location = '/', location1='#somos', location2='#proyecto', location3='#equipo', location4='#registro',
-location5 = '/registrar', label = 'SABE', label1 = 'Somos', label2 = 'Proyecto', label3 = 'Equipo', label4 = 'Registrar',
-label5 = 'Log In', label6 = 'Log Out') %}
+{% macro navbar(location = '/',
+label = 'SABE', label1 = 'Somos', label2 = 'Proyectos', label3 = 'Equipos',
+label4 = 'Registrar', label5 = 'Log In', label6 = 'Log Out', label7 = 'Home',
+location1='#somos', location2='#proyecto', location3='#equipo', location4='#registro', location5 = '/registrar', location7 = '/home') %}
 <!--location = '#', label1 = 'La palabra de la dirección'-->
 
 <header>
@@ -9,14 +10,15 @@ label5 = 'Log In', label6 = 'Log Out') %}
             <a href="{{location}}" class="brand-logo">{{label}}</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down" id="Navlist">
-                <li><a href="{{location1}}">{{label1}}</a></li>
-                <li><a href="{{location2}}">{{label2}}</a></li>
-                <li><a href="{{location3}}">{{label3}}</a></li>
-                <li><a href="{{location4}}">{{label4}}</a></li>
                     {% if 'username' in session %}
+                <li><a href="{{location7}}">{{label7}}</a></li>                    
                 <li><a href="">{{label6}}</a></li>
                     {% elif label == regresar %}
                     {% else %}
+                <li><a href="{{location1}}">{{label1}}</a></li>
+                <li><a href="{{location2}}">{{label2}}</a></li>
+                <li><a href="{{location3}}">{{label3}}</a></li>
+                <li><a href="{{location4}}">{{label4}}</a></li>    
                 <li><a href="{{location5}}">{{label5}}</a></li>
                     {% endif %}
             </ul>
@@ -25,6 +27,7 @@ label5 = 'Log In', label6 = 'Log Out') %}
                 <li><a href="{{location2}}">{{label2}}</a></li>
                 <li><a href="{{location3}}">{{label3}}</a></li>
                 <li><a href="{{location4}}">{{label4}}</a></li>
+                <li><a href="{{location7}}">{{label7}}</a></li>
             </ul>
         </div>
     </nav>
