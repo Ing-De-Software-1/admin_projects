@@ -2,7 +2,6 @@
 	{% block content %}
 	    {% from "macro/navbar.html" import navbar %}
 	    {% from "macro/footer.html" import footer %}
-	    {% from "macro/form.html" import form %}
         {% from "macro/renderField.html" import render_field %}
 
 	        {{ navbar() }}
@@ -12,10 +11,10 @@
             <div class="container">
                 <div class="row">
                     <!--Log In-->
-                    <div class="col s12 m12 l4 push-l8 center marginForm white-text">
+                    <div class="col s12 m12 l4 push-l8 marginForm white-text">
                         <form action="/login" method="post">
                             <div class="section">
-                                <div class="section">
+                                <div class="section center">
                                     <h5>Iniciar Sesión / Log In</h5>
                                 </div>
                                 <div class="section">
@@ -42,11 +41,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="section">
+                            <div class="section center">
                                 <div class="input-field col s12 m12 l12">
-                                    <button class="btn waves-effect waves-light register" type="submit" name="action">Log In
-                                        <i class="material-icons right">send</i>
-                                    </button>
+                                    <a href="/home">
+                                        <button class="btn waves-effect waves-light register" type="submit" name="action">Log In
+                                            <i class="material-icons right">send</i>
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         </form>
@@ -54,10 +55,10 @@
                     <!--End Log In-->
 
                     <!--Register Person-->
-                    <div class="col s12 m12 l4 center white-text" id="marginRegister">
+                    <div class="col s12 m12 l4 white-text" id="marginRegister">
                         <form action="/registro/persona" method="post">
                             <div class="section">
-                                <div class="section">
+                                <div class="section center">
                                     <h5>Registrate</h5>
                                 </div>
                                 <div class="section">
@@ -84,7 +85,7 @@
                                         {{render_field(registro.semestre,"")}}
                                     </div>
                                 </div>
-                                <div class="section">
+                                <div class="section center">
                                     <button class="btn waves-effect waves-light register" type="submit" name="action">Registrate
                                         <i class="material-icons right">send</i>
                                     </button>
@@ -95,23 +96,22 @@
                     <!--End Register Person-->
 
                     <!--Register Project & Team-->
-                    <div class="col s12 m12 l4 white-text pull-l8 marginForm center">
+                    <div class="col s12 m12 l4 white-text pull-l8 marginForm">
                         <form action="/registro/equipo" method="post">
                             <div class="section">
-                                <div class="section">
+                                <div class="section center">
                                     <h5>Registra tu Proyecto & Equipo</h5>
                                 </div>
                                 <div class="section">
                                     <div class="divider"></div>
                                     <div class="row">
-                                        {{ render_field(equipo.name, "vpn_key") }}
-                                    </div>
-                                    <div class="row">
-                                        {{ render_field(equipo.name, "vpn_key") }}
+                                        {{ render_field(equipo.name, "people") }}
                                     </div>
                                 </div>
-                                <div class="section">
-                                    <a class="waves-effect waves-light btn register" href="#modal1"><i class="material-icons right">send</i>Registrarse</a>
+                                <div class="section center">
+                                    <button class="btn waves-effect waves-light register" type="submit" name="action">Registrar
+                                        <i class="material-icons right">send</i>
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -120,18 +120,6 @@
                 </div>
             </div>
         </main>
-
-        <!-- Modal Structure -->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <h4>Modal Header</h4>
-                <p>A bunch of text</p>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons right">send</i>Enviar</a>
-            </div>
-        </div>
-
 
         {{ footer() }}
 	{% endblock %}

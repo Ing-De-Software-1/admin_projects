@@ -133,8 +133,7 @@ def register():
 
 @app.route(r'/home', methods=['GET'])
 def home():
-    return "Hola"
-    #return render_template('home.html')
+    return render_template('home.html')
 
 
 @app.route(r'/logout')

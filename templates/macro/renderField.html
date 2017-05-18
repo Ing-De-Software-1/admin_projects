@@ -1,5 +1,5 @@
 {% macro render_field(field,icon="person") %}
-    <div class="input-field col s12 m12 l12">
+    <div class="center input-field col s12 m12 l12">
         <i class="material-icons prefix">{{ icon }}</i>
         {{ field.label }}
         {{ field(**kwargs)|safe }}
