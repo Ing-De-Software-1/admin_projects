@@ -65,7 +65,7 @@ class RegisterForm(Form):
                           ])
 
 class EquipoForm(Form):
-    name= StringField('Name',
+    name= StringField('Nombre del Equipo',
                       [
                           validators.Required(message='Obligatorio'),
                           validators.length(min=4, max=25, message='Nombre invalido,'
@@ -85,7 +85,7 @@ class EquipoForm(Form):
 
 
 class ProyectoForm(Form):
-    name= StringField('Name',
+    name= StringField('Nombre del Proyecto',
                       [
                           validators.Required(message='Obligatorio'),
                           validators.length(min=4, max=25, message='Nombre invalido,'
