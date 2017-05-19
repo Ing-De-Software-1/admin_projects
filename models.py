@@ -25,6 +25,7 @@ class Equipo(ndb.Model):
 class Proyecto(ndb.Model):
     nombre = ndb.StringProperty(indexed= True, required=True)
     descripcion = ndb.TextProperty(indexed= True, required=True)
+    equipo = ndb.StringProperty(indexed= True, required=True)
 
 
 
@@ -58,11 +59,12 @@ def SaveEquipo(nombre="chachacha", integrantes=1):
         return False
 
 
-def SaveProyecto(nombre,descripcion):
+def SaveProyecto(nombre,descripcion,equipo):
     try:
         a=Proyecto(
             nombre=nombre,
-            descripcion=descripcion
+            descripcion=descripcion,
+            equipo=equipo
 
         )
         a.put()
@@ -93,3 +95,9 @@ def LoginModel(user):
     except:
         return False
 
+def ScanProyect():
+    try:
+        xxx=Proyecto.query(Proyecto.nombre != " ").fetch()
+        return [True,xxx]
+    except:
+        return False

@@ -29,7 +29,13 @@
 							</li>
 							<li>
 								<div class="collapsible-header border-collapsible pink darken-1"><i class="material-icons">place</i>Proyecto</div>
-								<div class="collapsible-body border-collapsible pink lighten-1"><span>Lorem ipsum dolor sit amet.</span></div>
+								<div class="collapsible-body border-collapsible pink lighten-1">
+                                    <div class="center">
+                                        <a class="waves-effect waves-light btn-large register" href="#modal2">
+                                            <i class="material-icons right">send</i>Agregar proyecto
+                                        </a>
+                                    </div>
+                                </div>
 							</li>
 							<li>
 								<div class="collapsible-header border-collapsible orange darken-1"><i class="material-icons">whatshot</i>Github / Gitlab</div>
@@ -40,7 +46,11 @@
 						<!-- Proyectos / projects -->
     				<div class="row">
     					<div class="section white-text">
-    						<h2>Proyecto: </h2>
+                            {% if 'proyecto' in session %}
+                                <h2>Proyecto: {{ session['proyecto'] }}</h2>
+                            {% else %}
+                                <h2>Proyecto: </h2>
+                            {% endif %}
     					</div>
     					<div class="divider"></div>
 						<ul class="collapsible popout" data-collapsible="accordion">
@@ -60,7 +70,44 @@
     				</div>
     			</div>
 
-<!-- Modal Structure -->
+                <!-- Modal Structure -->
+
+                <div id="modal2" class="modal purple lighten-4">
+                    <div class="modal-content">
+                        <ul class="collection with-header border-collap z-depth-5">
+                            <li class="collection-header border-collapsible pink darken-3 center">
+                                <h3>Proyecto</h3>
+                            </li>
+                            <!--Miembro 1-->
+                            <li class="collection-item border-collapsible pink lighten-1">
+                                <form action="/registro/proyecto" method="post">
+                                    <div class="section">
+
+                                        <div class="section">
+                                            <div class="row">
+                                                {{ render_field(proyecto.name,"grade") }}
+                                            </div>
+                                            <div class="row">
+                                                {{ render_field( proyecto.descripcion, "code")}}
+                                            </div>
+
+                                            <div class="section center">
+                                                <button class="btn waves-effect waves-light register" type="submit" name="action">Registrar
+                                                    <i class="material-icons right">send</i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons left">close</i>Cerrar</a>
+                    </div>
+                </div>
+
+                <!-- Modal Structure -->
 <div id="modal1" class="modal purple lighten-4">
 	<div class="modal-content">
 		<ul class="collection with-header border-collap z-depth-5">

@@ -38,6 +38,17 @@
         </ul>
     </div>
 
+    {% for x in a %}
+        <ul>
+
+            <li> Proyecto: {{ x.nombre }}</li>
+            <li> Equipo: {{ x.equipo }}</li>
+
+        </ul>
+        <br>
+
+    {% endfor %}
+
     {{card("/registrar")}}
 </main>
         {{ footer() }}

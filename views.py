@@ -18,8 +18,10 @@ def server_error(e):
 
 @app.route(r'/')
 def index():
-	return render_template('index.html')
-
+    a=ScanProyect()
+    if a[0]:
+        return render_template('index.html', a=a[1])
+    return render_template('index.html')
 
 
 @app.route(r'/registrar', methods=['GET','POST'])
@@ -42,11 +44,14 @@ def registrar():
 @app.route(r'/prm', methods=['GET','POST'])
 @app.route(r'/prm/<us>/<pas>/<mail>/<int:sem>/<cta>', methods=['GET','POST'])
 def prm(us="erick",pas="erick",mail="eric@gmail.com",sem=4,cta="313190944"):
-    if SaveUser(us,pas,mail,sem,cta):
-        a=SaveEquipo("equipo dinamita buena onda",2)
-        if a[0]:
-            return "si paso"
-        return redirect(url_for('home'))
+    if SaveProyecto(
+            "nombre del proyecto",
+            "descripcion del proyecto",
+            "equipo"
+
+    ):
+        return "yess"
+    return "Nooo"
 
 
 
@@ -121,8 +126,9 @@ def registroEquipo():
 @app.route(r'/home', methods=['GET','POST'])
 def home():
     form_reg = forms.RegisterForm(request.form)
+    form_pro = forms.ProyectoForm(request.form)
     e=''
-    return render_template('home.html' , registro=form_reg,  e=e)
+    return render_template('home.html' ,proyecto=form_pro, registro=form_reg,  e=e)
 
 
 
@@ -146,6 +152,25 @@ def registromiembro():
                     ):
             return redirect(url_for('home'))
     return "Error"
+
+
+
+@app.route(r'/registro/proyecto', methods=['GET','POST'])
+def registroproyecto():
+    form_pro = forms.ProyectoForm(request.form)
+    err=''
+    if request.method== 'POST' and form_pro.validate() :
+        name= (form_pro.name.data).encode('utf-8')
+        desc= (form_pro.descripcion.data).encode('utf-8')
+        session['proyecto']=name
+        if SaveProyecto(
+                unicode(str(name), "utf-8"),
+                unicode(str(desc), "utf-8"),
+                session['equipo']
+                ):
+            return redirect(url_for('home'))
+    return "Error"
+
 
 
 @app.route(r'/logout')

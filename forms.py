@@ -90,8 +90,5 @@ class ProyectoForm(Form):
                          [
                              validators.Required(message='Obligatorio'),
                          ])
-    code = TextAreaField('Ingresa tu texto',
-                         [
-                             validators.Required(message='Obligatorio'),
-                         ])
+
     #nombre,descripcion,duracion,equipo
