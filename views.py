@@ -1,6 +1,7 @@
 from flask import Flask, render_template,request, session, redirect, url_for,flash
 from config import DevelopmentConfig
 #from models import *
+from email import send_email
 import forms
 
 app = Flask(__name__)
@@ -32,6 +33,7 @@ def registrar():
     if request.method== 'POST' and form_log.validate():
         user= form_log.username.data
         password= form_log.password.data
+        send_email('kevingtz0907@gmail.com', 'New USer', "There is a new user, 'this is a test'")
         return redirect(url_for('home'))
 
     return render_template('registrar.html', login=form_log , registro=form_reg, equipo=form_equ, proyecto=form_pro, e=e)
