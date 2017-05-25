@@ -18,9 +18,10 @@ def server_error(e):
 
 @app.route(r'/')
 def index():
-    a=ScanProyect()
-    if a[0]:
-        return render_template('index.html', a=a[1])
+#    a=ScanProyect()
+#    if a[0]:
+#        return render_template('index.html', a=a[1])
+
     return render_template('index.html')
 
 

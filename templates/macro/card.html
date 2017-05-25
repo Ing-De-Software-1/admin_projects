@@ -1,5 +1,5 @@
 {% macro card(location = '/registrar', location5 = '/registrar',
-label = 'Somos', label1 = 'Proyecto', label2 = 'Equipo', label3 = 'Registrar', label4 = 'Registrate') %}
+label = 'Somos', label1 = 'Proyectos', label2 = 'Equipo', label3 = 'Registrar', label4 = 'Registrate') %}
 <!-- Card 1-->
 <div class="card1" id="somos">
     <div class="container">
@@ -12,6 +12,19 @@ label = 'Somos', label1 = 'Proyecto', label2 = 'Equipo', label3 = 'Registrar', l
                     <div class="card-content grey-text text-lighten-4">
                         <span class="card-title center">{{label}}</span>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                        <p>
+                            {% for x in a %}
+                                <ul>
+
+                                    <li> Proyecto: {{ x.nombre }}</li>
+                                    <li> Equipo: {{ x.equipo }}</li>
+                                    <li> Descripción {{x.descripcion}}</li>
+
+                                </ul>
+                                <br>
+
+                            {% endfor %}                          
+                        </p>
                     </div>
                     <div class="card-action">
                     </div>
@@ -31,7 +44,31 @@ label = 'Somos', label1 = 'Proyecto', label2 = 'Equipo', label3 = 'Registrar', l
                 <div class="card grey lighten-4 z-depth-5">
                     <div class="card-content grey-text text-darken-4">
                         <span class="card-title center">{{label1}}</span>
-                        <p>Lorem ipsum7 dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                        <p>Lorem ipsum7 dolor sito amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A continuación presentaremos algunos proyectos abajo: 
+                        </p>
+                        <div class="section">
+                            <div class="carousel carousel-slider center z-depth-5" data-indicators="true" id="carousel-slider">
+                                <div class="carousel-fixed-item center">
+                                    <a class="btn waves-effect register" href="{{location5}}">Registra el tuyo</a>
+                                </div>
+                                <div class="carousel-item red white-text" href="#one!">
+                                    <h2>Link2SD</h2>
+                                    <h5 class="white-text">Proyecto: Progressive Web App</h5>
+                                </div>
+                                <div class="carousel-item amber darken-1 white-text" href="#two!">
+                                    <h2>GDG UNAM</h2>
+                                    <h5 class="white-text">Proyecto: SABE</h5>
+                                </div>
+                                <div class="carousel-item green white-text" href="#three!">
+                                    <h2>Codea</h2>
+                                    <h5 class="white-text">Proyecto: FLISOL</h5>
+                                </div>
+                                <div class="carousel-item blue white-text" href="#four!">
+                                    <h2>Arduino Team</h2>
+                                    <h5 class="white-text">Proyecto: G4D2G4</h5>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-action">
 

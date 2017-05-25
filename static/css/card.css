@@ -28,3 +28,6 @@
 	max-width: 80% !important;
 	border-radius: 5px;
 }
+#carousel-slider{
+    height: 250px !important;
+}
